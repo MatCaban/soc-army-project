@@ -6,11 +6,10 @@ import com.github.matcaban.army.commands.Tauntable;
 public class Warrior extends Hero implements Tauntable {
     public Warrior(String name) {
         super(name, Role.TANK);
-        this.damage = 2;
     }
 
     @Override
-    public String command() {
+    public String taunt() {
         return this.getClass().getSimpleName() + " "
                 + this.name + " taunts 3 enemies";
     }

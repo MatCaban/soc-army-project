@@ -5,8 +5,8 @@ import com.github.matcaban.army.commands.Damageable;
 import com.github.matcaban.army.commands.Healable;
 import com.github.matcaban.army.commands.Tauntable;
 
-public class Paladin extends Hero implements Tauntable, Healable {
-    public Paladin(String name) {
+public class Druid extends Hero implements Tauntable, Damageable {
+    public Druid(String name) {
         super(name, Role.SUPPORT);
     }
 
@@ -19,12 +19,12 @@ public class Paladin extends Hero implements Tauntable, Healable {
     @Override
     public String castSpecialAbility() {
         return this.getClass().getSimpleName() + " "
-                + this.name + " cast bubble to become invincible for 2 seconds";
+                + this.name + " calls Ents for help";
     }
 
     @Override
-    public String heal() {
+    public String dealDamage() {
         return this.getClass().getSimpleName() + " "
-                + this.name + " heal friendly hero 2 HP";
+                + this.name + " deal splash damage up to 4 enemies";
     }
 }

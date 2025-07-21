@@ -4,7 +4,6 @@ import com.github.matcaban.army.Role;
 
 public abstract class Hero {
     protected String name;
-    protected int damage;
     protected Role role;
 
     public Hero(String name, Role role) {

@@ -22,12 +22,7 @@ public class Main {
 
 
         for (Hero hero: army) {
-            if (hero.getRole() == Role.TANK) {
-                System.out.println();
-            }
+            System.out.println(hero);
         }
-
-
-
     }
 }

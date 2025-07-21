@@ -1,5 +1,5 @@
 package com.github.matcaban.army.commands;
 
 public interface Damageable {
-    public String command();
+    public String dealDamage();
 }
