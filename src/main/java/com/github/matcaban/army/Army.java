@@ -15,10 +15,6 @@ public class Army {
         this.army = army;
     }
 
-    public void addHero(Hero hero){
-        this.army.add(hero);
-    }
-
     public void report(){
         for (Hero hero: army){
             System.out.println(hero);
