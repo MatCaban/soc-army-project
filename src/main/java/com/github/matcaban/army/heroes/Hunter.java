@@ -14,9 +14,9 @@ public class Hunter extends Hero implements Damageable, Resurrectionable {
 
     @Override
     public int dealDamage(Hero enemy) {
-        int damageDealt = DAMAGE_DONE * new Random().nextInt(DAMAGE_DONE + 1);
+        int damageDealt = new Random().nextInt(DAMAGE_DONE) + 1;
         System.out.println(this.getClass().getSimpleName() + " "
-                + this.name + " deal " + damageDealt + " to " + enemy.getName());
+                + this.name + " deal " + damageDealt + " damage to " + enemy.getName());
         return damageDealt;
     }
 

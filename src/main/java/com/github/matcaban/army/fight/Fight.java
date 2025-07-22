@@ -4,10 +4,11 @@ import com.github.matcaban.army.Army;
 import com.github.matcaban.army.heroes.Hero;
 
 import java.util.List;
+import java.util.Random;
 
 public class Fight {
-    Army aliance;
-    Army horde;
+    private final Army aliance;
+    private final Army horde;
 
     public Fight(Army aliance, Army horde) {
         this.aliance = aliance;
@@ -21,4 +22,11 @@ public class Fight {
         System.out.println("\n-------Horde-------");
         this.horde.report();
     }
+
+    public void attackArmy() {
+        aliance.attack(horde);
+        horde.removeDeadHero();
+    }
+
+
 }

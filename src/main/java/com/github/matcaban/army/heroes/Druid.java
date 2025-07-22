@@ -27,9 +27,8 @@ public class Druid extends Hero implements Tauntable, Damageable {
 
     @Override
     public int dealDamage(Hero enemy) {
-        int damageDealt = DAMAGE_DONE * new Random().nextInt(DAMAGE_DONE + 1);
         System.out.println(this.getClass().getSimpleName() + " "
-                + this.name + " deal " + damageDealt + " to " + enemy.getName());
-        return damageDealt;
+                + this.name + " deal " + DAMAGE_DONE + " damage to " + enemy.getName());
+        return DAMAGE_DONE;
     }
 }
