@@ -32,6 +32,8 @@ public abstract class Hero {
         this.currentHealthPoints -= damage;
     }
 
+
+    // you can not heal more than maximum hp
     public void healHP(int healing) {
         if ((this.currentHealthPoints + healing) > this.maxHealthPoints) {
             this.currentHealthPoints = this.maxHealthPoints;

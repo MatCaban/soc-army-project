@@ -10,7 +10,7 @@ public class Paladin extends Hero implements Tauntable, Healable {
     private static final int TAUNT_CAPACITY = 1;
     private static final int HEALING_DONE = 2;
     private static final int BUBBLE_DURATION = 2;
-    private static final int FULL_HEALTH = 4;
+    private static final int FULL_HEALTH = 6;
     public Paladin(String name) {
         super(name, Role.SUPPORT, DAMAGE_DONE, FULL_HEALTH);
     }
@@ -27,6 +27,7 @@ public class Paladin extends Hero implements Tauntable, Healable {
                 + this.name + " cast bubble to become invincible for " + BUBBLE_DURATION + " seconds";
     }
 
+    // healing is calculating randomly between 1 and max healing done
     @Override
     public int heal(Hero ally) {
         int healingDone = new Random().nextInt(HEALING_DONE) +1;

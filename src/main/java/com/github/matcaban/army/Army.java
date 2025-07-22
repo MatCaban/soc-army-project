@@ -35,6 +35,7 @@ public class Army {
         }
     }
 
+    // attack random alive hero from enemy army
     public void attack(Army enemyArmy) {
         System.out.println("----" + this.faction + " is attacking " + enemyArmy.getFaction() + "----");
         for (Hero hero : this.army) {
@@ -42,6 +43,18 @@ public class Army {
                 Hero enemyHero = getRandomHero(enemyArmy);
                 int damageDealt = ((Damageable) hero).dealDamage(enemyHero);
                 enemyHero.looseHP(damageDealt);
+            }
+        }
+    }
+
+    // heal random alive hero from ally
+    public void heal(Army ally) {
+        System.out.println("\n----" + this.faction + " is healing allies ----");
+        for (Hero hero : this.army) {
+            if (hero instanceof Healable) {
+                Hero allyHero = getRandomHero(ally);
+                int healingDone = ((Healable) hero).heal(allyHero);
+                allyHero.healHP(healingDone);
             }
         }
     }
@@ -56,13 +69,6 @@ public class Army {
         return army.getArmy().get(randomHeroIndex);
     }
 
-    public void tautn() {
-        for (Hero hero : army) {
-            if (hero instanceof Tauntable) {
-                System.out.println(((Tauntable) hero).taunt());
-            }
-        }
-    }
 
     public boolean areAllDamagersDead() {
         for (Hero hero: army) {
@@ -73,13 +79,10 @@ public class Army {
         return true;
     }
 
-    public void heal(Army ally) {
-        System.out.println("\n----" + this.faction + " is healing allies ----");
-        for (Hero hero : this.army) {
-            if (hero instanceof Healable) {
-                Hero allyHero = getRandomHero(ally);
-                int healingDone = ((Healable) hero).heal(allyHero);
-                allyHero.healHP(healingDone);
+    public void tautn() {
+        for (Hero hero : army) {
+            if (hero instanceof Tauntable) {
+                System.out.println(((Tauntable) hero).taunt());
             }
         }
     }

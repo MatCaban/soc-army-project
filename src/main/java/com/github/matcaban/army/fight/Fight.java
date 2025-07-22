@@ -35,9 +35,9 @@ public class Fight {
         attacker.attack(deffender);
         deffender.removeDeadHero();
 
-        // every third round it is possible to heal ally
+        // every third round it is possible for deffender to heal ally
         if (roundIndex % 3 == 0) {
-            attacker.heal(attacker);
+            deffender.heal(deffender);
         }
 
         Army temp = attacker;

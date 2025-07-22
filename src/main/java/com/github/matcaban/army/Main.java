@@ -38,6 +38,7 @@ public class Main {
         int roundCounter = 1;
         while (!hordeArmy.getArmy().isEmpty() && !alianceArmy.getArmy().isEmpty()) {
 
+            // fight ends when there are no more Heroes able to do damage
             if (hordeArmy.areAllDamagersDead() || alianceArmy.areAllDamagersDead()) {
                 break;
             }
@@ -48,20 +49,17 @@ public class Main {
             fight.fightStats();
             roundCounter++;
         }
+
         System.out.println(hordeArmy.getArmy().size() > alianceArmy.getArmy().size()
                 ? "====HORDE WINS===="
                 : "====ALIANCE WINS====");
 
 
-//
-//        System.out.println("\n-------ATTACK-------");
-//        army.attack();
-//
+
+
 //        System.out.println("\n-------TAUNT-------");
 //        army.tautn();
-//
-//        System.out.println("\n-------HEAL-------");
-//        army.heal();
+
 //
 //        System.out.println("\n-------DEAD ALLY NEED RESURRECTION-------");
 //        army.resurrect();
