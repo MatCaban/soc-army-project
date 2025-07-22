@@ -3,10 +3,11 @@ package com.github.matcaban.army.heroes;
 import com.github.matcaban.army.commands.Healable;
 import com.github.matcaban.army.commands.Resurrectionable;
 
+import java.util.Random;
+
 public class Shaman extends Hero implements Healable, Resurrectionable {
     private static final int DAMAGE_DONE = 0;
-    private static final int HEALING_DONE = 1;
-    private static final int CHAIN_HEAL_CAPACITY = 3;
+    private static final int HEALING_DONE = 2;
     private static final int RESURRECTION_CAPACITY = 1;
     private static final int FULL_HEALTH = 3;
     public Shaman(String name) {
@@ -14,9 +15,11 @@ public class Shaman extends Hero implements Healable, Resurrectionable {
     }
 
     @Override
-    public String heal() {
-        return this.getClass().getSimpleName() + " "
-                + this.name + " heal up to " + CHAIN_HEAL_CAPACITY + " friendly heroes for " + HEALING_DONE + " HP";
+    public int heal(Hero ally) {
+        int healingDone = new Random().nextInt(HEALING_DONE) +1;
+        System.out.println(this.getClass().getSimpleName() + " "
+                + this.name + " heal friendly hero " + ally.getName() + " of " + healingDone + " HP");
+        return healingDone;
     }
 
     @Override

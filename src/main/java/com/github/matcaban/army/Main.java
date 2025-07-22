@@ -15,15 +15,13 @@ public class Main {
         Hero A_druid = new Druid("Aliance-Druid");
         Hero A_hunter = new Hunter("Aliance-Hunter");
         Hero A_priest = new Priest("Aliance-Priest");
-        Hero A_shaman = new Shaman("Aliance-Shaman");
         Hero A_warlock = new Warlock("Aliance-Warlock");
 
         Army alianceArmy = new Army(
-                List.of(A_warrior, A_paladin, A_druid, A_hunter, A_priest, A_shaman, A_warlock), Faction.ALIANCE
+                List.of(A_warrior, A_paladin, A_druid, A_hunter, A_priest, A_warlock), Faction.ALIANCE
         );
 
         Hero H_warrior = new Warrior("Horde-Warrior");
-        Hero H_paladin = new Paladin("Horde-Paladin");
         Hero H_druid = new Druid("Horde-Druid");
         Hero H_hunter = new Hunter("Horde-Hunter");
         Hero H_priest = new Priest("Horde-Priest");
@@ -31,7 +29,7 @@ public class Main {
         Hero H_warlock = new Warlock("Horde-Warlock");
 
         Army hordeArmy = new Army(
-                List.of(H_warrior, H_paladin, H_druid, H_hunter, H_priest, H_shaman, H_warlock), Faction.HORDE
+                List.of(H_warrior, H_druid, H_hunter, H_priest, H_shaman, H_warlock), Faction.HORDE
         );
 
         Fight fight = new Fight(alianceArmy, hordeArmy);
@@ -39,12 +37,20 @@ public class Main {
 
         int roundCounter = 1;
         while (!hordeArmy.getArmy().isEmpty() && !alianceArmy.getArmy().isEmpty()) {
+
+            if (hordeArmy.areAllDamagersDead() || alianceArmy.areAllDamagersDead()) {
+                break;
+            }
+
             System.out.println("\n====Round " + roundCounter + " Start====\n");
-            fight.attackArmy();
+            fight.attackArmy(roundCounter);
             System.out.println("\n====Round " + roundCounter + " Ends====\n");
             fight.fightStats();
             roundCounter++;
         }
+        System.out.println(hordeArmy.getArmy().size() > alianceArmy.getArmy().size()
+                ? "====HORDE WINS===="
+                : "====ALIANCE WINS====");
 
 
 //

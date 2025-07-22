@@ -4,13 +4,15 @@ public abstract class Hero {
     protected String name;
     protected int damage;
     protected Role role;
-    protected int healthPoints;
+    protected int maxHealthPoints;
+    protected int currentHealthPoints;
 
-    public Hero(String name, Role role, int damage, int healthPoints) {
+    public Hero(String name, Role role, int damage, int maxHealthPoints) {
         this.name = name;
         this.role = role;
         this.damage = damage;
-        this.healthPoints = healthPoints;
+        this.maxHealthPoints = maxHealthPoints;
+        this.currentHealthPoints = maxHealthPoints;
     }
 
 
@@ -18,8 +20,8 @@ public abstract class Hero {
         return role;
     }
 
-    public int getHealthPoints() {
-        return healthPoints;
+    public int getCurrentHealthPoints() {
+        return currentHealthPoints;
     }
 
     public String getName() {
@@ -27,7 +29,15 @@ public abstract class Hero {
     }
 
     public void looseHP(int damage) {
-        this.healthPoints -= damage;
+        this.currentHealthPoints -= damage;
+    }
+
+    public void healHP(int healing) {
+        if ((this.currentHealthPoints + healing) > this.maxHealthPoints) {
+            this.currentHealthPoints = this.maxHealthPoints;
+        } else {
+            this.currentHealthPoints += healing;
+        }
     }
 
     public abstract String castSpecialAbility();
@@ -36,7 +46,7 @@ public abstract class Hero {
     public String toString() {
         return Hero.class.getSimpleName() + " " +
                 this.getClass().getSimpleName() + " " + this.name + " here. Type: - " + this.role
-                + ", Health: " + this.healthPoints;
+                + ", Health: " + this.currentHealthPoints;
     }
 
 

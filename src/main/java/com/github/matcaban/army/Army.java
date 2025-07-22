@@ -44,12 +44,11 @@ public class Army {
                 enemyHero.looseHP(damageDealt);
             }
         }
-
     }
 
 
     public void removeDeadHero() {
-        army.removeIf(hero -> hero.getHealthPoints() <= 0);
+        army.removeIf(hero -> hero.getCurrentHealthPoints() <= 0);
     }
 
     private Hero getRandomHero(Army army) {
@@ -65,10 +64,22 @@ public class Army {
         }
     }
 
-    public void heal() {
-        for (Hero hero : army) {
+    public boolean areAllDamagersDead() {
+        for (Hero hero: army) {
+            if (hero instanceof Damageable) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void heal(Army ally) {
+        System.out.println("\n----" + this.faction + " is healing allies ----");
+        for (Hero hero : this.army) {
             if (hero instanceof Healable) {
-                System.out.println(((Healable) hero).heal());
+                Hero allyHero = getRandomHero(ally);
+                int healingDone = ((Healable) hero).heal(allyHero);
+                allyHero.healHP(healingDone);
             }
         }
     }

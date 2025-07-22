@@ -12,6 +12,8 @@ public class Fight {
     public Fight(Army firstArmy, Army secondArmy) {
         this.firstArmy = firstArmy;
         this.secondArmy = secondArmy;
+
+        // set who will attack first by random choosing from factions
         this.attacker = Faction.randomFaction() == firstArmy.getFaction()
                 ? firstArmy
                 : secondArmy;
@@ -22,20 +24,25 @@ public class Fight {
 
 
     public void fightStats(){
-        System.out.println("-------Aliance-------");
+        System.out.println("-------Aliance Army-------");
         this.firstArmy.report();
 
-        System.out.println("\n-------Horde-------");
+        System.out.println("\n-------Horde Army-------");
         this.secondArmy.report();
     }
 
-    public void attackArmy() {
+    public void attackArmy(int roundIndex) {
         attacker.attack(deffender);
         deffender.removeDeadHero();
+
+        // every third round it is possible to heal ally
+        if (roundIndex % 3 == 0) {
+            attacker.heal(attacker);
+        }
+
         Army temp = attacker;
         attacker = deffender;
         deffender = temp;
     }
-
 
 }

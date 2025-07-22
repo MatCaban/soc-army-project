@@ -3,6 +3,8 @@ package com.github.matcaban.army.heroes;
 import com.github.matcaban.army.commands.Healable;
 import com.github.matcaban.army.commands.Tauntable;
 
+import java.util.Random;
+
 public class Paladin extends Hero implements Tauntable, Healable {
     private static final int DAMAGE_DONE = 0;
     private static final int TAUNT_CAPACITY = 1;
@@ -26,8 +28,10 @@ public class Paladin extends Hero implements Tauntable, Healable {
     }
 
     @Override
-    public String heal() {
-        return this.getClass().getSimpleName() + " "
-                + this.name + " heal friendly hero " + HEALING_DONE + " HP";
+    public int heal(Hero ally) {
+        int healingDone = new Random().nextInt(HEALING_DONE) +1;
+        System.out.println(this.getClass().getSimpleName() + " "
+                + this.name + " heal friendly hero " + ally.getName() + " of " + healingDone + " HP");
+        return healingDone;
     }
 }

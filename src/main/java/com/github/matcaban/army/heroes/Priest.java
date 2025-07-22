@@ -2,6 +2,8 @@ package com.github.matcaban.army.heroes;
 
 import com.github.matcaban.army.commands.Healable;
 
+import java.util.Random;
+
 public class Priest extends Hero implements Healable {
     private static final int DAMAGE_DONE = 0;
     private static final int HEALING_DONE = 4;
@@ -11,9 +13,11 @@ public class Priest extends Hero implements Healable {
     }
 
     @Override
-    public String heal() {
-        return this.getClass().getSimpleName() + " "
-                + this.name + " heal friendly hero for " + HEALING_DONE + " HP";
+    public int heal(Hero ally) {
+        int healingDone = new Random().nextInt(HEALING_DONE) +1;
+        System.out.println(this.getClass().getSimpleName() + " "
+                + this.name + " heal friendly hero " + ally.getName() + " of " + healingDone + " HP");
+        return healingDone;
     }
 
     @Override
