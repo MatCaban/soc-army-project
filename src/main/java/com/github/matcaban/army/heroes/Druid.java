@@ -1,6 +1,5 @@
 package com.github.matcaban.army.heroes;
 
-import com.github.matcaban.army.Role;
 import com.github.matcaban.army.commands.Damageable;
 import com.github.matcaban.army.commands.Tauntable;
 

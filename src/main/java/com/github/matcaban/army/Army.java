@@ -5,6 +5,7 @@ import com.github.matcaban.army.commands.Healable;
 import com.github.matcaban.army.commands.Resurrectionable;
 import com.github.matcaban.army.commands.Tauntable;
 import com.github.matcaban.army.heroes.Hero;
+import com.github.matcaban.army.heroes.Role;
 
 import java.util.List;
 

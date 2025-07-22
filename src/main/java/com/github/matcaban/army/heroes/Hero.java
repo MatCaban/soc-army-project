@@ -1,7 +1,5 @@
 package com.github.matcaban.army.heroes;
 
-import com.github.matcaban.army.Role;
-
 public abstract class Hero {
     protected String name;
     protected int damage;

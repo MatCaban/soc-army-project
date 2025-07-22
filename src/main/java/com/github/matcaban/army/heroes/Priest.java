@@ -1,6 +1,5 @@
 package com.github.matcaban.army.heroes;
 
-import com.github.matcaban.army.Role;
 import com.github.matcaban.army.commands.Healable;
 
 public class Priest extends Hero implements Healable {

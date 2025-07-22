@@ -1,6 +1,5 @@
 package com.github.matcaban.army.heroes;
 
-import com.github.matcaban.army.Role;
 import com.github.matcaban.army.commands.Healable;
 import com.github.matcaban.army.commands.Resurrectionable;
 
@@ -8,7 +7,7 @@ public class Shaman extends Hero implements Healable, Resurrectionable {
     private static final int DAMAGE_DONE = 0;
     private static final int HEALING_DONE = 1;
     private static final int CHAIN_HEAL_CAPACITY = 3;
-    private static final int RESSURECTION_CAPACITY = 1;
+    private static final int RESURRECTION_CAPACITY = 1;
     public Shaman(String name) {
         super(name, Role.HEALER, DAMAGE_DONE);
     }
@@ -28,6 +27,6 @@ public class Shaman extends Hero implements Healable, Resurrectionable {
     @Override
     public String resurrect() {
         return this.getClass().getSimpleName() + " "
-                + this.name + " bring " + RESSURECTION_CAPACITY + " dead hero to life, now he is exhausted and needs rest.";
+                + this.name + " bring " + RESURRECTION_CAPACITY + " dead hero to life, now he is exhausted and needs rest.";
     }
 }
