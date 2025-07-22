@@ -8,8 +8,9 @@ public class Paladin extends Hero implements Tauntable, Healable {
     private static final int TAUNT_CAPACITY = 1;
     private static final int HEALING_DONE = 2;
     private static final int BUBBLE_DURATION = 2;
+    private static final int FULL_HEALTH = 4;
     public Paladin(String name) {
-        super(name, Role.SUPPORT, DAMAGE_DONE);
+        super(name, Role.SUPPORT, DAMAGE_DONE, FULL_HEALTH);
     }
 
     @Override

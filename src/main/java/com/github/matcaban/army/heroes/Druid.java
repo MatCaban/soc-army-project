@@ -7,8 +7,9 @@ public class Druid extends Hero implements Tauntable, Damageable {
     private static final int DAMAGE_DONE = 1;
     private static final int TAUNT_CAPACITY = 1;
     private static final int SPLASH_DAMAGE_RANGE = 4;
+    private static final int FULL_HEALTH = 4;
     public Druid(String name) {
-        super(name, Role.SUPPORT, DAMAGE_DONE);
+        super(name, Role.SUPPORT, DAMAGE_DONE, FULL_HEALTH);
     }
 
     @Override

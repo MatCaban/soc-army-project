@@ -5,8 +5,9 @@ import com.github.matcaban.army.commands.Resurrectionable;
 
 public class Hunter extends Hero implements Damageable, Resurrectionable {
     private static final int DAMAGE_DONE = 4;
+    private static final int FULL_HEALTH = 3;
     public Hunter(String name) {
-        super(name, Role.DAMAGE, DAMAGE_DONE);
+        super(name, Role.DAMAGE, DAMAGE_DONE, FULL_HEALTH);
     }
 
     @Override
