@@ -4,14 +4,16 @@ import com.github.matcaban.army.Role;
 import com.github.matcaban.army.commands.Tauntable;
 
 public class Warrior extends Hero implements Tauntable {
+    private static final int DAMAGE_DONE = 0;
+    private static final int TAUNT_CAPACITY = 3;
     public Warrior(String name) {
-        super(name, Role.TANK);
+        super(name, Role.TANK, DAMAGE_DONE);
     }
 
     @Override
     public String taunt() {
         return this.getClass().getSimpleName() + " "
-                + this.name + " taunts 3 enemies";
+                + this.name + " taunts " + TAUNT_CAPACITY + " enemies";
     }
 
     @Override

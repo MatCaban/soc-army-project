@@ -6,14 +6,17 @@ import com.github.matcaban.army.commands.Healable;
 import com.github.matcaban.army.commands.Tauntable;
 
 public class Druid extends Hero implements Tauntable, Damageable {
+    private static final int DAMAGE_DONE = 1;
+    private static final int TAUNT_CAPACITY = 1;
+    private static final int SPLASH_DAMAGE_RANGE = 4;
     public Druid(String name) {
-        super(name, Role.SUPPORT);
+        super(name, Role.SUPPORT, DAMAGE_DONE);
     }
 
     @Override
     public String taunt() {
         return this.getClass().getSimpleName() + " "
-                + this.name + " taunts one enemy";
+                + this.name + " taunts " + TAUNT_CAPACITY + " enemy";
     }
 
     @Override
@@ -25,6 +28,6 @@ public class Druid extends Hero implements Tauntable, Damageable {
     @Override
     public String dealDamage() {
         return this.getClass().getSimpleName() + " "
-                + this.name + " deal splash damage up to 4 enemies";
+                + this.name + " deal splash damage of " + DAMAGE_DONE + " up to " + SPLASH_DAMAGE_RANGE + " enemies";
     }
 }

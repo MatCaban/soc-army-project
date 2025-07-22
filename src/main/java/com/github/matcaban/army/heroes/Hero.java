@@ -4,12 +4,15 @@ import com.github.matcaban.army.Role;
 
 public abstract class Hero {
     protected String name;
+    protected int damage;
     protected Role role;
 
-    public Hero(String name, Role role) {
+    public Hero(String name, Role role, int damage) {
         this.name = name;
         this.role = role;
+        this.damage = damage;
     }
+
 
     public Role getRole() {
         return role;

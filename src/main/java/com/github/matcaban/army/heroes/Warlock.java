@@ -4,14 +4,15 @@ import com.github.matcaban.army.Role;
 import com.github.matcaban.army.commands.Damageable;
 
 public class Warlock extends Hero implements Damageable {
+    private static final int DAMAGE_DONE = 4;
     public Warlock(String name) {
-        super(name, Role.DAMAGE);
+        super(name, Role.DAMAGE, DAMAGE_DONE);
     }
 
     @Override
     public String dealDamage() {
         return this.getClass().getSimpleName() + " "
-                + this.name + " deals 4 damage with shadowbolt";
+                + this.name + " deals " + DAMAGE_DONE + " damage with shadowbolt";
     }
 
     @Override

@@ -2,17 +2,18 @@ package com.github.matcaban.army.heroes;
 
 import com.github.matcaban.army.Role;
 import com.github.matcaban.army.commands.Damageable;
-import com.github.matcaban.army.commands.Ressurectionable;
+import com.github.matcaban.army.commands.Resurrectionable;
 
-public class Hunter extends Hero implements Damageable, Ressurectionable {
+public class Hunter extends Hero implements Damageable, Resurrectionable {
+    private static final int DAMAGE_DONE = 4;
     public Hunter(String name) {
-        super(name, Role.DAMAGE);
+        super(name, Role.DAMAGE, DAMAGE_DONE);
     }
 
     @Override
     public String dealDamage() {
         return this.getClass().getSimpleName() + " "
-                + this.name + " deals 5 damage with piercing shot";
+                + this.name + " deals " + DAMAGE_DONE + " damage with piercing shot";
     }
 
     @Override
@@ -22,7 +23,7 @@ public class Hunter extends Hero implements Damageable, Ressurectionable {
     }
 
     @Override
-    public String ressurect() {
+    public String resurrect() {
         return this.getClass().getSimpleName() + " "
                 + this.name + " brings his pet back to life, now Hero is to week to attack.";
     }
