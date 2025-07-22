@@ -1,31 +1,40 @@
 package com.github.matcaban.army.fight;
 
 import com.github.matcaban.army.Army;
-import com.github.matcaban.army.heroes.Hero;
-
-import java.util.List;
-import java.util.Random;
+import com.github.matcaban.army.heroes.Faction;
 
 public class Fight {
-    private final Army aliance;
-    private final Army horde;
+    private final Army firstArmy;
+    private final Army secondArmy;
+    private Army attacker;
+    private Army deffender;
 
-    public Fight(Army aliance, Army horde) {
-        this.aliance = aliance;
-        this.horde = horde;
+    public Fight(Army firstArmy, Army secondArmy) {
+        this.firstArmy = firstArmy;
+        this.secondArmy = secondArmy;
+        this.attacker = Faction.randomFaction() == firstArmy.getFaction()
+                ? firstArmy
+                : secondArmy;
+        this.deffender = attacker.getFaction() == firstArmy.getFaction()
+                ? secondArmy
+                : firstArmy;
     }
+
 
     public void fightStats(){
         System.out.println("-------Aliance-------");
-        this.aliance.report();
+        this.firstArmy.report();
 
         System.out.println("\n-------Horde-------");
-        this.horde.report();
+        this.secondArmy.report();
     }
 
     public void attackArmy() {
-        aliance.attack(horde);
-        horde.removeDeadHero();
+        attacker.attack(deffender);
+        deffender.removeDeadHero();
+        Army temp = attacker;
+        attacker = deffender;
+        deffender = temp;
     }
 
 

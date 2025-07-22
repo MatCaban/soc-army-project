@@ -19,7 +19,7 @@ public class Main {
         Hero A_warlock = new Warlock("Aliance-Warlock");
 
         Army alianceArmy = new Army(
-                List.of(A_warrior, A_paladin, A_druid, A_hunter, A_priest, A_shaman, A_warlock)
+                List.of(A_warrior, A_paladin, A_druid, A_hunter, A_priest, A_shaman, A_warlock), Faction.ALIANCE
         );
 
         Hero H_warrior = new Warrior("Horde-Warrior");
@@ -31,19 +31,20 @@ public class Main {
         Hero H_warlock = new Warlock("Horde-Warlock");
 
         Army hordeArmy = new Army(
-                List.of(H_warrior, H_paladin, H_druid, H_hunter, H_priest, H_shaman, H_warlock)
+                List.of(H_warrior, H_paladin, H_druid, H_hunter, H_priest, H_shaman, H_warlock), Faction.HORDE
         );
 
         Fight fight = new Fight(alianceArmy, hordeArmy);
         fight.fightStats();
 
-        while (!hordeArmy.getArmy().isEmpty()) {
-            System.out.println("\n====Round Start====");
+        int roundCounter = 1;
+        while (!hordeArmy.getArmy().isEmpty() && !alianceArmy.getArmy().isEmpty()) {
+            System.out.println("\n====Round " + roundCounter + " Start====\n");
             fight.attackArmy();
-            System.out.println("\n====Round Ends====\n");
+            System.out.println("\n====Round " + roundCounter + " Ends====\n");
             fight.fightStats();
+            roundCounter++;
         }
-
 
 
 //

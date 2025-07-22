@@ -4,6 +4,7 @@ import com.github.matcaban.army.commands.Damageable;
 import com.github.matcaban.army.commands.Healable;
 import com.github.matcaban.army.commands.Resurrectionable;
 import com.github.matcaban.army.commands.Tauntable;
+import com.github.matcaban.army.heroes.Faction;
 import com.github.matcaban.army.heroes.Hero;
 import com.github.matcaban.army.heroes.Role;
 
@@ -12,14 +13,20 @@ import java.util.List;
 import java.util.Random;
 
 public class Army {
-    private List<Hero> army;
+    private final List<Hero> army;
+    private final Faction faction;
 
-    public Army(List<Hero> army) {
+    public Army(List<Hero> army, Faction faction) {
         this.army = new ArrayList<>(army);
+        this.faction = faction;
     }
 
     public List<Hero> getArmy() {
         return army;
+    }
+
+    public Faction getFaction() {
+        return faction;
     }
 
     public void report() {
@@ -29,6 +36,7 @@ public class Army {
     }
 
     public void attack(Army enemyArmy) {
+        System.out.println("----" + this.faction + " is attacking " + enemyArmy.getFaction() + "----");
         for (Hero hero : this.army) {
             if (hero instanceof Damageable) {
                 Hero enemyHero = getRandomHero(enemyArmy);
@@ -36,6 +44,7 @@ public class Army {
                 enemyHero.looseHP(damageDealt);
             }
         }
+
     }
 
 
