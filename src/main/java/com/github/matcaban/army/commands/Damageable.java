@@ -1,5 +1,7 @@
 package com.github.matcaban.army.commands;
 
+import com.github.matcaban.army.heroes.Hero;
+
 public interface Damageable {
-    String dealDamage();
+    int dealDamage(Hero enemy);
 }

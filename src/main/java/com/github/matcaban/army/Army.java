@@ -22,13 +22,13 @@ public class Army {
         }
     }
 
-    public void attack(){
-        for (Hero hero: army) {
-            if (hero instanceof Damageable){
-                System.out.println(((Damageable) hero).dealDamage());
-            }
-        }
-    }
+//    public void attack(){
+//        for (Hero hero: army) {
+//            if (hero instanceof Damageable){
+//                System.out.println(((Damageable) hero).dealDamage());
+//            }
+//        }
+//    }
 
     public void tautn() {
         for (Hero hero: army) {

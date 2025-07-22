@@ -22,6 +22,10 @@ public abstract class Hero {
         return healthPoints;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void looseHP(int damage) {
         this.healthPoints -= damage;
     }
@@ -31,7 +35,8 @@ public abstract class Hero {
     @Override
     public String toString() {
         return Hero.class.getSimpleName() + " " +
-                this.getClass().getSimpleName() + " " + this.name + " here. Type: - " + this.role;
+                this.getClass().getSimpleName() + " " + this.name + " here. Type: - " + this.role
+                + ", Health: " + this.healthPoints;
     }
 
 

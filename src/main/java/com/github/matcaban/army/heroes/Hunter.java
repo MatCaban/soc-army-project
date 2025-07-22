@@ -3,17 +3,21 @@ package com.github.matcaban.army.heroes;
 import com.github.matcaban.army.commands.Damageable;
 import com.github.matcaban.army.commands.Resurrectionable;
 
+import java.util.Random;
+
 public class Hunter extends Hero implements Damageable, Resurrectionable {
-    private static final int DAMAGE_DONE = 4;
+    private static final int DAMAGE_DONE = 2;
     private static final int FULL_HEALTH = 3;
     public Hunter(String name) {
         super(name, Role.DAMAGE, DAMAGE_DONE, FULL_HEALTH);
     }
 
     @Override
-    public String dealDamage() {
-        return this.getClass().getSimpleName() + " "
-                + this.name + " deals " + DAMAGE_DONE + " damage with piercing shot";
+    public int dealDamage(Hero enemy) {
+        int damageDealt = DAMAGE_DONE * new Random().nextInt(DAMAGE_DONE + 1);
+        System.out.println(this.getClass().getSimpleName() + " "
+                + this.name + " deal " + damageDealt + " to " + enemy.getName());
+        return damageDealt;
     }
 
     @Override

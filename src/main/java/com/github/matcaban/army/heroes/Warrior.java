@@ -4,9 +4,10 @@ import com.github.matcaban.army.commands.Tauntable;
 
 public class Warrior extends Hero implements Tauntable {
     private static final int DAMAGE_DONE = 0;
+    private static final int FULL_HEALTH = 6;
     private static final int TAUNT_CAPACITY = 3;
     public Warrior(String name) {
-        super(name, Role.TANK, DAMAGE_DONE);
+        super(name, Role.TANK, DAMAGE_DONE, FULL_HEALTH);
     }
 
     @Override
