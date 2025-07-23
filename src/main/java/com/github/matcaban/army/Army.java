@@ -39,9 +39,9 @@ public class Army {
     public void attack(Army enemyArmy) {
         System.out.println("----" + this.faction + " is attacking " + enemyArmy.getFaction() + "----");
         for (Hero hero : this.army) {
-            if (hero instanceof Damageable) {
+            if (hero instanceof Damageable damageableHero) {
                 Hero enemyHero = getRandomHero(enemyArmy);
-                int damageDealt = ((Damageable) hero).dealDamage(enemyHero);
+                int damageDealt = damageableHero.dealDamage(enemyHero);
                 enemyHero.looseHP(damageDealt);
             }
         }
@@ -51,9 +51,9 @@ public class Army {
     public void heal(Army ally) {
         System.out.println("\n----" + this.faction + " is healing allies ----");
         for (Hero hero : this.army) {
-            if (hero instanceof Healable) {
+            if (hero instanceof Healable healableHero) {
                 Hero allyHero = getRandomHero(ally);
-                int healingDone = ((Healable) hero).heal(allyHero);
+                int healingDone = healableHero.heal(allyHero);
                 allyHero.healHP(healingDone);
             }
         }
@@ -81,16 +81,16 @@ public class Army {
 
     public void tautn() {
         for (Hero hero : army) {
-            if (hero instanceof Tauntable) {
-                System.out.println(((Tauntable) hero).taunt());
+            if (hero instanceof Tauntable tauntableHero) {
+                System.out.println(tauntableHero.taunt());
             }
         }
     }
 
     public void resurrect() {
         for (Hero hero : army) {
-            if (hero instanceof Resurrectionable) {
-                System.out.println(((Resurrectionable) hero).resurrect());
+            if (hero instanceof Resurrectionable resurrectionableHero) {
+                System.out.println(resurrectionableHero.resurrect());
             }
         }
     }

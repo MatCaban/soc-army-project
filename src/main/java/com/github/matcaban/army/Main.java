@@ -39,7 +39,7 @@ public class Main {
         int roundCounter = 1;
         while (!hordeArmy.getArmy().isEmpty() && !alianceArmy.getArmy().isEmpty()) {
 
-            // fight ends when there are no more Heroes able to do damage
+            // the fight ends when there are no more damageable heroes alive
             if (hordeArmy.areAllDamageableDead() || alianceArmy.areAllDamageableDead()) {
                 break;
             }
