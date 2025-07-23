@@ -1,4 +1,4 @@
-package com.github.matcaban.army.heroes;
+package com.github.matcaban.army.fight;
 
 import java.util.Random;
 

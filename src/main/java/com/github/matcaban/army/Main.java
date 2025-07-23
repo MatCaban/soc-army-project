@@ -1,5 +1,6 @@
 package com.github.matcaban.army;
 
+import com.github.matcaban.army.fight.Faction;
 import com.github.matcaban.army.fight.Fight;
 import com.github.matcaban.army.heroes.*;
 
@@ -39,7 +40,7 @@ public class Main {
         while (!hordeArmy.getArmy().isEmpty() && !alianceArmy.getArmy().isEmpty()) {
 
             // fight ends when there are no more Heroes able to do damage
-            if (hordeArmy.areAllDamagersDead() || alianceArmy.areAllDamagersDead()) {
+            if (hordeArmy.areAllDamageablesDead() || alianceArmy.areAllDamageablesDead()) {
                 break;
             }
 
@@ -51,8 +52,8 @@ public class Main {
         }
 
         System.out.println(hordeArmy.getArmy().size() > alianceArmy.getArmy().size()
-                ? "====HORDE WINS===="
-                : "====ALIANCE WINS====");
+                ? "\n====HORDE WINS===="
+                : "\n====ALIANCE WINS====");
 
 
 

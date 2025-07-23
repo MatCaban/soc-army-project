@@ -4,7 +4,7 @@ import com.github.matcaban.army.commands.Damageable;
 import com.github.matcaban.army.commands.Healable;
 import com.github.matcaban.army.commands.Resurrectionable;
 import com.github.matcaban.army.commands.Tauntable;
-import com.github.matcaban.army.heroes.Faction;
+import com.github.matcaban.army.fight.Faction;
 import com.github.matcaban.army.heroes.Hero;
 import com.github.matcaban.army.heroes.Role;
 
@@ -35,7 +35,7 @@ public class Army {
         }
     }
 
-    // attack random alive hero from enemy army
+    // attack a random alive hero from enemy army
     public void attack(Army enemyArmy) {
         System.out.println("----" + this.faction + " is attacking " + enemyArmy.getFaction() + "----");
         for (Hero hero : this.army) {
@@ -47,7 +47,7 @@ public class Army {
         }
     }
 
-    // heal random alive hero from ally
+    // heal a random alive hero from ally
     public void heal(Army ally) {
         System.out.println("\n----" + this.faction + " is healing allies ----");
         for (Hero hero : this.army) {
@@ -70,7 +70,7 @@ public class Army {
     }
 
 
-    public boolean areAllDamagersDead() {
+    public boolean areAllDamageablesDead() {
         for (Hero hero: army) {
             if (hero instanceof Damageable) {
                 return false;
