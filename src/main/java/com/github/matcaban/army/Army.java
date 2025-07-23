@@ -35,7 +35,7 @@ public class Army {
         }
     }
 
-    // attack a random alive hero from enemy army
+    // attack a random alive hero from an enemy army
     public void attack(Army enemyArmy) {
         System.out.println("----" + this.faction + " is attacking " + enemyArmy.getFaction() + "----");
         for (Hero hero : this.army) {
@@ -70,7 +70,7 @@ public class Army {
     }
 
 
-    public boolean areAllDamageablesDead() {
+    public boolean areAllDamageableDead() {
         for (Hero hero: army) {
             if (hero instanceof Damageable) {
                 return false;

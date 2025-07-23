@@ -15,7 +15,7 @@ public class Shaman extends Hero implements Healable, Resurrectionable {
     }
 
 
-    // healing is calculating randomly between 1 and max healing done
+    // healing is calculating randomly chosen between 1 and max healing done
     @Override
     public int heal(Hero ally) {
         int healingDone = new Random().nextInt(HEALING_DONE) +1;

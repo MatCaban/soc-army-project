@@ -12,7 +12,7 @@ public class Warlock extends Hero implements Damageable {
     }
 
 
-    // damage is calculating randomly between 1 and max damage done
+    // damage is calculating randomly chosen between 1 and max damage done
     @Override
     public int dealDamage(Hero enemy) {
         int damageDealt = new Random().nextInt(DAMAGE_DONE) + 1;

@@ -40,7 +40,7 @@ public class Main {
         while (!hordeArmy.getArmy().isEmpty() && !alianceArmy.getArmy().isEmpty()) {
 
             // fight ends when there are no more Heroes able to do damage
-            if (hordeArmy.areAllDamageablesDead() || alianceArmy.areAllDamageablesDead()) {
+            if (hordeArmy.areAllDamageableDead() || alianceArmy.areAllDamageableDead()) {
                 break;
             }
 
