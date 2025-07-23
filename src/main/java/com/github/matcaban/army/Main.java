@@ -23,14 +23,14 @@ public class Main {
         );
 
         Hero H_warrior = new Warrior("Horde-Warrior");
+        Hero H_shaman = new Shaman("Horde-Shaman");
         Hero H_druid = new Druid("Horde-Druid");
         Hero H_hunter = new Hunter("Horde-Hunter");
         Hero H_priest = new Priest("Horde-Priest");
-        Hero H_shaman = new Shaman("Horde-Shaman");
         Hero H_warlock = new Warlock("Horde-Warlock");
 
         Army hordeArmy = new Army(
-                List.of(H_warrior, H_druid, H_hunter, H_priest, H_shaman, H_warlock), Faction.HORDE
+                List.of(H_warrior, H_shaman, H_druid, H_hunter, H_priest, H_warlock), Faction.HORDE
         );
 
         Fight fight = new Fight(alianceArmy, hordeArmy);
